@@ -1,0 +1,23 @@
+.sidebar-container{
+    position: fixed;
+    left: 0;
+    top:11vh;
+    width: 15vw;
+}
+.sidebar-items{
+    display: flex;
+    flex-direction: column;
+    min-height: 93vh;
+    border-right: 1px solid var(--light-secondary-color);
+    gap: var(--scale-sm)
+}
+.sidebar-menu-item{
+    font-weight: 700;
+    font-size: var(--default-font-size);
+    padding: var(--scale-sm);
+    display: flex;
+    gap: var(--scale-md);
+    align-items: center;
+    margin-left: 4rem;
+    cursor: pointer;
+}

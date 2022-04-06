@@ -1,9 +1,12 @@
 import "./App.css";
-import logo from "./logo.png";
+import { Header } from "./Components/Header/Header";
+import { PageRoutes } from "./Routes/PageRoutes";
 
-function App() {
+const App = () =>{
   return (
     <div className="App">
+      <Header/>
+      <PageRoutes/>
     </div>
   );
 }
