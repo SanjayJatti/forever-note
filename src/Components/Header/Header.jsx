@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -26,6 +26,13 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <ul className="nav-list nav-social-media margin-r-xl">
+      <li className="nav-item">
+            <NavLink to="/login" className="nav-link">
+              <button className="btn btn-primary">LogIn</button>
+            </NavLink>
+          </li>
+      </ul>
     </div>
   );
 };
