@@ -39,7 +39,7 @@ const Header = () => {
             <div className="nav-link">
               <button 
               className="btn btn-primary"
-              onClick={()=> logOutHandler()}>Logout</button>
+              onClick={logOutHandler}>Logout</button>
             </div>
           )}
         </li>

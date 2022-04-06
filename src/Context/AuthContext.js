@@ -24,8 +24,6 @@ const AuthProvider = ({ children }) => {
     error: "",
     token: authToken,
   });
-  const { firstName, lastName, email, password, confirmPassword } =
-    authState.userInfo;
 
   const signUpHandler = async (
     e,
@@ -87,7 +85,6 @@ const AuthProvider = ({ children }) => {
     });
     navigate("/");
   };
-console.log(authState.isUserLoggedIn)
   return (
     <authContext.Provider
       value={{

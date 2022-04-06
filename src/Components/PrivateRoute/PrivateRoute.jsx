@@ -5,7 +5,6 @@ import { useAuth } from '../../Context/AuthContext'
 export const PrivateRoute = ({children}) => {
   const { authState } = useAuth()
   const {isUserLoggedIn } = authState;
-  console.log(isUserLoggedIn)
   return (
    <>
    {isUserLoggedIn ? children : <Navigate to="/login"/> }
