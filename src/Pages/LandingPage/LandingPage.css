@@ -1,0 +1,14 @@
+
+.hero-section{
+    background-image: url("../../Assets/hero-img-notes.jpg");
+    background-position: center;
+    height: 80vh; 
+    width: 100%;
+    color: var(--secondary-color);
+}
+.hero-section h1{
+    background-color: var(--off-white);
+    color: var(--secondary-color);
+    border-radius: var(--scale-xxs);
+    padding: 1rem;
+}
