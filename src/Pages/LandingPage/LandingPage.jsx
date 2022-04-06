@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Footer } from "../../Components/Footer/Footer";
-import { Header } from "../../Components/Header/Header";
 import "./LandingPage.css";
 
 export const LandingPage = () => {
   return (
     <>
-      <Header />
       <div className="">
         <div className="hero-section flex-column-center gap-md">
           <h1 className="padding-sm">

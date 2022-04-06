@@ -1,32 +1,20 @@
-import React from 'react'
-import { Header } from '../../Components/Header/Header'
-import { Link } from 'react-router-dom'
-import './Auth.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Auth.css";
 
 export const Signup = () => {
   return (
     <>
-    <Header/>
-    <div className="sign-up-wrapper flex-center">
+      <div className="sign-up-wrapper flex-center">
         <form className="form-container">
           <h1 className="form-title primary">Sign Up</h1>s
           <div className="input-container">
             <label htmlFor="firstname">First Name*</label>
-            <input
-              required
-              type="text"
-              name="firstname"
-              id="firstname"
-            />
+            <input required type="text" name="firstname" id="firstname" />
           </div>
           <div className="input-container">
             <label htmlFor="lastname">Last Name*</label>
-            <input
-              required
-              type="text"
-              name="lastname"
-              id="lastname"
-            />
+            <input required type="text" name="lastname" id="lastname" />
           </div>
           <div className="input-container">
             <label htmlFor="email">Email*</label>
@@ -40,12 +28,7 @@ export const Signup = () => {
           </div>
           <div className="input-container">
             <label htmlFor="password">Password*</label>
-            <input
-              required
-              type="password"
-              name="password"
-              id="password"
-            />
+            <input required type="password" name="password" id="password" />
           </div>
           <div className="input-container">
             <label htmlFor="password-confirm">Confirm Password*</label>
@@ -70,5 +53,5 @@ export const Signup = () => {
         </form>
       </div>
     </>
-  )
-}
+  );
+};

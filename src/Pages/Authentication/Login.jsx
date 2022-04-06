@@ -1,13 +1,11 @@
 import React from "react";
-import { Header } from "../../Components/Header/Header.jsx"
 import { Link } from "react-router-dom";
-import "./Auth.css"
+import "./Auth.css";
 
 export const Login = () => {
   return (
     <>
-    <Header/>
-    <div className="log-in-wrapper flex-center">
+      <div className="log-in-wrapper flex-center">
         <form className="form-container">
           <h1 className="form-title primary">Log In</h1>
           <div className="input-container">
@@ -22,12 +20,7 @@ export const Login = () => {
           </div>
           <div className="input-container">
             <label htmlFor="password">Password*</label>
-            <input
-              required
-              type="password"
-              name="password"
-              id="password"
-            />
+            <input required type="password" name="password" id="password" />
           </div>
           <div className="forget-password flex-row">
             <div className="input-checkbox">
@@ -41,7 +34,7 @@ export const Login = () => {
                 Remember me
               </label>
             </div>
-            <Link to="/login"className="text-medium text-primary">
+            <Link to="/login" className="text-medium text-primary">
               {" "}
               Forget your password?
             </Link>
@@ -49,9 +42,7 @@ export const Login = () => {
           <button type="submit" className="btn btn-primary">
             Log In
           </button>
-          <button className="btn btn-secondary">
-            Guest LogIn
-          </button>
+          <button className="btn btn-secondary">Guest LogIn</button>
           <p className="text-medium">
             Don't have an account?
             <Link to="/signup" className="text-medium text-primary">
@@ -61,5 +52,5 @@ export const Login = () => {
         </form>
       </div>
     </>
-  )
-}
+  );
+};
