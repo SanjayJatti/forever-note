@@ -1,8 +1,11 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext";
 import "./Header.css";
 
 const Header = () => {
+  const { authState, logOutHandler } = useAuth();
+  const { isUserLoggedIn } =authState;
   return (
     <div className="navbar-container">
       <div className="nav-link header-title">
@@ -27,11 +30,19 @@ const Header = () => {
         </div>
       </div>
       <ul className="nav-list nav-social-media margin-r-xl">
-      <li className="nav-item">
+        <li className="nav-item">
+          {!isUserLoggedIn ? (
             <NavLink to="/login" className="nav-link">
               <button className="btn btn-primary">LogIn</button>
             </NavLink>
-          </li>
+          ) : (
+            <div className="nav-link">
+              <button 
+              className="btn btn-primary"
+              onClick={()=> logOutHandler()}>Logout</button>
+            </div>
+          )}
+        </li>
       </ul>
     </div>
   );
