@@ -4,10 +4,10 @@ import { useAuth } from '../../Context/AuthContext'
 
 export const PrivateRoute = ({children}) => {
   const { authState } = useAuth()
-  const {isUserLoggedIn } = authState;
+  const { token } = authState;
   return (
    <>
-   {isUserLoggedIn ? children : <Navigate to="/login"/> }
+   {token ? children : <Navigate to="/login" replace/> }
    </>
   )
 }

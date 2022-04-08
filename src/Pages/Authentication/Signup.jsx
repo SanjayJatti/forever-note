@@ -1,23 +1,52 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   USER_FIRST_NAME,
   USER_LAST_NAME,
   USER_EMAIL,
   USER_PASSWORD,
   USER_CONFIRM_PASSWORD,
+  AUTH_TOKEN,
+  AUTH_ERROR,
 } from "../../Constants/AuthConstants";
 import { useAuth } from "../../Context/AuthContext";
+import axios from "axios";
 import "./Auth.css";
 
 export const Signup = () => {
-  const { authState, authDispatch, signUpHandler } = useAuth();
+  const { authState, authDispatch } = useAuth();
   const { userInfo, error } = authState;
   const { firstName, lastName, email, password, confirmPassword } = userInfo;
+  const navigate = useNavigate();
+
+  const signUpHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`/api/auth/signup`, {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+        confirmPassword: confirmPassword,
+      });
+      localStorage.setItem("token", response.data.encodedToken);
+      authDispatch({
+        type: AUTH_TOKEN,
+        payload: response.data.encodedToken,
+      });
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+      authDispatch({
+        type: AUTH_ERROR,
+        payload: "Sign up failed",
+      });
+    }
+  };
   return (
     <>
       <div className="sign-up-wrapper flex-center">
-        <form className="form-container" onSubmit={(e) => signUpHandler(e, firstName, lastName, email, password,confirmPassword)}>
+        <form className="form-container" onSubmit={(e) => signUpHandler(e)}>
           <h1 className="form-title primary">Sign Up</h1>s
           <div className="input-container">
             <label htmlFor="firstname">First Name*</label>

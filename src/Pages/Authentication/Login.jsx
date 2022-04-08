@@ -1,16 +1,43 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { useAuth } from "../../Context/AuthContext";
 import {
+  AUTH_TOKEN,
   USER_EMAIL,
-  USER_PASSWORD
+  USER_PASSWORD,
+  AUTH_ERROR
 } from "../../Constants/AuthConstants";
+import axios from "axios";
 
-export const Login = () => {
-  const { authState, authDispatch,logInHandler } = useAuth();
+const Login = () => {
+  const { authState, authDispatch } = useAuth();
   const { error } = authState;
   const {  email, password} = authState.userInfo;
+  const navigate = useNavigate();
+
+  const logInHandler = async (e, emailId, userPassword) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`/api/auth/login`, {
+        email: emailId,
+        password: userPassword,
+      });
+      localStorage.setItem("token", response.data.encodedToken);
+
+      authDispatch({
+        type: AUTH_TOKEN,
+        payload: response.data.encodedToken
+      });
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      authDispatch({
+        type: AUTH_ERROR,
+        payload: "Invalid email or password",
+      });
+    }
+  };
   return (
     <>
       <div className="log-in-wrapper flex-center">
@@ -84,3 +111,5 @@ export const Login = () => {
     </>
   );
 };
+
+export { Login}
