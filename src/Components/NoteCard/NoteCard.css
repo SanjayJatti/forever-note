@@ -1,0 +1,7 @@
+.note-card{
+    width: 15rem;
+    height: auto;
+    border: 1px solid var(--secondary-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}

@@ -1,7 +1,7 @@
 .sidebar-container{
     position: fixed;
     left: 0;
-    top:11vh;
+    top: 9vh;
     width: 15vw;
 }
 .sidebar-items{
@@ -9,15 +9,14 @@
     flex-direction: column;
     min-height: 93vh;
     border-right: 1px solid var(--light-secondary-color);
-    gap: var(--scale-sm)
+    gap: 10px
 }
 .sidebar-menu-item{
     font-weight: 700;
-    font-size: var(--default-font-size);
-    padding: var(--scale-sm);
+    padding: 10px;
     display: flex;
-    gap: var(--scale-md);
+    gap: 1rem;
     align-items: center;
-    margin-left: 4rem;
+    margin-left: 2.5rem;
     cursor: pointer;
 }

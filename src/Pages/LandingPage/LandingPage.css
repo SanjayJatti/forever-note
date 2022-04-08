@@ -2,13 +2,21 @@
 .hero-section{
     background-image: url("../../Assets/hero-img-notes.jpg");
     background-position: center;
-    height: 80vh; 
+    height: 78vh; 
     width: 100%;
     color: var(--secondary-color);
+    gap: 1rem
 }
-.hero-section h1{
+.hero-title{
+    padding: 5px;
+}
+.hero-section h2{
     background-color: var(--off-white);
     color: var(--secondary-color);
-    border-radius: var(--scale-xxs);
+    border-radius: 5px;
+    padding: 0.7rem;
+}
+.btn-large{
     padding: 1rem;
+    font-size: 1.2rem;
 }

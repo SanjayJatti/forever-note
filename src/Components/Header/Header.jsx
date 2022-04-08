@@ -20,14 +20,14 @@ const Header = () => {
   return (
     <div className="navbar-container">
       <div className="nav-link header-title">
-        <Link to="/">
+        <Link to="/" className="text-decoration-none">
           {" "}
           <h2>
             Forever<span className="text-secondary">Note</span>
           </h2>
         </Link>
       </div>
-      <div className="search-box-container margin-auto">
+      <div className="search-box-container">
         <div className="search-box flex-center">
           <input
             className="search-txt"
@@ -40,7 +40,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <ul className="nav-list nav-social-media margin-r-xl">
+      <ul className="nav-list">
         <li className="nav-item">
           {!token ? (
             <NavLink to="/login" className="nav-link">

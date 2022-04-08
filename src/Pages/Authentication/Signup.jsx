@@ -47,7 +47,7 @@ export const Signup = () => {
     <>
       <div className="sign-up-wrapper flex-center">
         <form className="form-container" onSubmit={(e) => signUpHandler(e)}>
-          <h1 className="form-title primary">Sign Up</h1>s
+          <h1 className="form-title text-primary">Sign Up</h1>
           <div className="input-container">
             <label htmlFor="firstname">First Name*</label>
             <input
@@ -112,7 +112,7 @@ export const Signup = () => {
               }
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary btn-long">
             Create New Account
           </button>
           <p className="text-medium">

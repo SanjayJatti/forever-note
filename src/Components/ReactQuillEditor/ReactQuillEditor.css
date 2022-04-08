@@ -1,0 +1,9 @@
+.ql-toolbar.ql-snow {
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+.ql-container{
+    height: 10rem;
+    font-size: 1rem;
+    border-radius: 5px;
+}

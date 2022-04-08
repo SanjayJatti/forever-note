@@ -1,0 +1,15 @@
+.all-notes-container{
+    position: relative;
+    left: 15vw;
+    padding: 1rem;
+    width: 85vw;
+}
+.margin-l-xs{
+    margin-left: 5px;
+}
+.note-card-container{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
