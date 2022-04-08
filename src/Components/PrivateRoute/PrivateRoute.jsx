@@ -1,7 +1,13 @@
 import React from 'react'
+import { Navigate } from 'react-router-dom';
+import { useAuth } from '../../Context/AuthContext'
 
-export const PrivateRoute = () => {
+export const PrivateRoute = ({children}) => {
+  const { authState } = useAuth()
+  const { token } = authState;
   return (
-    <div>PrivateRoute</div>
+   <>
+   {token ? children : <Navigate to="/login" replace/> }
+   </>
   )
 }

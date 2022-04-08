@@ -1,8 +1,22 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context/AuthContext";
 import "./Header.css";
+import { AUTH_TOKEN } from "../../Constants/AuthConstants";
 
 const Header = () => {
+  const { authState, authDispatch } = useAuth();
+  const { token } = authState;
+  const navigate = useNavigate();
+
+  const logOutHandler = () => {
+    localStorage.removeItem("token");
+    authDispatch({
+      type: AUTH_TOKEN,
+      payload: null
+    });
+    navigate("/");
+  };
   return (
     <div className="navbar-container">
       <div className="nav-link header-title">
@@ -27,11 +41,19 @@ const Header = () => {
         </div>
       </div>
       <ul className="nav-list nav-social-media margin-r-xl">
-      <li className="nav-item">
+        <li className="nav-item">
+          {!token ? (
             <NavLink to="/login" className="nav-link">
               <button className="btn btn-primary">LogIn</button>
             </NavLink>
-          </li>
+          ) : (
+            <div className="nav-link">
+              <button 
+              className="btn btn-primary"
+              onClick={logOutHandler}>Logout</button>
+            </div>
+          )}
+        </li>
       </ul>
     </div>
   );
