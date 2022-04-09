@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+:root{
+	--primary-color: #0077b6;
+	--dark-primary-color: #004368;
+    --light-primary-color: #caf0f8;
+
+	--secondary-color: #343a40;
+	--dark-secondary-color: #111827;
+    --light-secondary-color:#c0c5c9;
+
+    --success-color: #059669;
+    --dark-success-color: #065f46;
+    --light-success-color:#99d98c;
+
+    --danger-color: #dc2626;
+    --dark-danger-color: #b91c1c;
+    --light-danger-color: #ffdab9;
+
+    --warning-color: #f59e0b;
+    --dark-warning-color: #d97706;
+    --light-warning-color:#ffee99;
+
+    --white: #ffffff;
+    --off-white: #f6f9fc;
+
+    --shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    --shadow-spread: 13px 13px 21px -5px rgba(0, 0, 0, 0.3);
+    --shadow-v3: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+/* Classes for flex */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-column-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.justify-content-space-btw{
+    justify-content: space-between;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.align-items-center{
+    align-items: center;
+}
+.text-decoration-none{
+    text-decoration: none;
+}
+.font-inherit{
+    font-size: inherit;
+}
+
+li{
+    list-style: none;
+}
+/* Text Colors */
+.text-primary{
+    color: var(--primary-color);
+}
+.text-secondary{
+    color: var(--secondary-color);
+}
+/* button component */
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: fit-content;
+    font-family: inherit;
+}
+.btn-long{
+    width: 100%;
+}
+.btn-primary{
+    color: var(--off-white);
+    background-color: var(--primary-color);
+}
+.btn-primary:hover{
+    background-color: var(--dark-primary-color);
+}
+
+.btn-secondary{
+    color:var(--off-white);
+    background-color: var(--secondary-color);
+}
+.btn-outline-primary{
+    color: var(--primary-color);
+    background-color: transparent;
+    border: 1.5px solid;
+}
+.btn-outline-primary:hover{
+    background-color: var(--primary-color);
+    color: var(--off-white);
+    border: 1.5px solid;
+}

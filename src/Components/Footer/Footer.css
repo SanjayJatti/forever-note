@@ -2,10 +2,18 @@
     background-color: var(--primary-color);
     color: var(--off-white);
     width: 100%;
-    height: 10vh;
+    height: 15vh;
     position: fixed;
     bottom:0;
     left:0;
+    gap: 10px;
+    padding: 1.5rem;
+    font-weight: bold;
+    border-top: 1px solid var(--light-secondary-color);
+}
+.footer-list{
+    gap: 1.5rem;
+    font-weight: bold;
 }
 .footer .fab{
     color: var(--off-white);

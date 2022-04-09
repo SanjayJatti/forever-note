@@ -4,19 +4,66 @@
     top: 7vh;
 }
 .form-container{
-    width: 40rem;
-    height: 40rem;
-    gap: var(--scale-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--white);
+    color: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    width: 30rem;
+    height: 30rem;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 1rem;
+}
+
+input,
+textarea{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--light-secondary-color);
+    width: 100%;
+    font-size: 1rem;
+}
+input:focus,
+textarea:focus {
+	border-color: var(--secondary-color);
+}
+
+label{
+    font-size: 1rem;
 }
 
 .form-title{
     align-self: center;
 }
 .forget-password{
-  gap: var(--scale-sm);
+  gap: 5px;
   align-items: center;
 }
 .error-msg{
     color: var(--danger-color);
     margin: auto;
+}
+
+input[type='checkbox'] {
+	cursor: pointer;
+}
+.input-checkbox{
+    display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 5px;
+}
+.text-medium{
+    font-size: 0.9rem;
+}
+.gap-md{
+    gap: 0.5rem;
 }

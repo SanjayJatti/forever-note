@@ -7,13 +7,13 @@ export const LandingPage = () => {
   return (
     <>
       <div className="">
-        <div className="hero-section flex-column-center gap-md">
-          <h1 className="padding-sm">
-            <span className="text-primary font-inherit">Forever </span>
-            Note
-          </h1>
-          <h1>CREATE YOUR DAILY NOTES SEAMLESSLY</h1>
-          <Link to="/home">
+        <div className="hero-section flex-column-center">
+          <h2 className="hero-title">
+            <span className="text-primary font-inherit">FOREVER </span>
+            NOTE
+          </h2>
+          <h2>CREATE YOUR DAILY NOTES SEAMLESSLY</h2>
+          <Link to="/home" className="text-decoration-none">
             <button className="btn btn-primary btn-large">
               <h3>Get Started</h3>
             </button>
