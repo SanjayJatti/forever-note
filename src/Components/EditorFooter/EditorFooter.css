@@ -1,0 +1,37 @@
+.editor-footer{
+    position: relative;
+    gap : 1rem
+}
+.dropdown{
+    background-color: var(--light-primary-color);
+    padding: 0.7rem;
+    border-radius: 5px;
+    position: absolute;
+    gap: 0.5rem;
+    box-shadow: var(--shadow);
+    width: auto;
+}
+.pallet-position{
+    top:  2rem;
+    left: 1rem;
+}
+.priority-position{
+    left: 3rem;
+    top: 2rem;
+}
+.labels-position{
+    left: 5rem;
+    top : 2rem;
+}
+.editor-btn{
+    border: none;
+    background-color: var(--white);
+    font-size: 1.5rem;
+}
+.color-btn{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}

@@ -126,3 +126,16 @@ li{
     color: var(--off-white);
     border: 1.5px solid;
 }
+/* background colors */
+.bg-primary{
+    background-color: var(--primary-color);
+}
+.bg-danger{
+    background-color: var(--danger-color) ;
+}
+.bg-warning{
+    background-color: var(--warning-color);
+}
+.bg-success{
+    background-color: var(--success-color);
+}

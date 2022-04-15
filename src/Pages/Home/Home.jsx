@@ -3,6 +3,7 @@ import { useState } from "react";
 import { NoteCard } from "../../Components/NoteCard/NoteCard";
 import { NoteEditor } from "../../Components/NoteEditor/NoteEditor";
 import { Sidebar } from "../../Components/Sidebar/Sidebar";
+import { useNoteActions } from "../../Context/NoteActionsContext";
 import { useNotes } from "../../Context/NotesContext";
 import "./Home.css";
 
@@ -10,6 +11,7 @@ const Home = () => {
   const [showNoteEditor, setShowNoteEditor] = useState(false);
   const { notesState } = useNotes();
   const { notes } = notesState;
+  const { noteActionsState } = useNoteActions();
 
   return (
     <>
@@ -29,11 +31,11 @@ const Home = () => {
           <NoteEditor setShowNoteEditor={setShowNoteEditor} />
         )}
         <div>
-          {notes.map((noteCard) => (
-            <div className="note-card-container">
-              <NoteCard noteCard={noteCard} />
-            </div>
-          ))}
+          <div className="note-card-container">
+            {notes.map((noteCard, index) => {
+              return !noteCard.inTrash && <NoteCard noteCard={noteCard} key={index}/>;
+            })}
+          </div>
         </div>
       </div>
     </>
