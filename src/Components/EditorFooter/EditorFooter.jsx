@@ -8,7 +8,7 @@ import { useNoteActions } from "../../Context/NoteActionsContext";
 import { NoteCard } from "../NoteCard/NoteCard";
 import "./EditorFooter.css";
 
-const EditorFooter = ({noteCard}) => {
+const EditorFooter = ({ noteCard }) => {
   const [toggle, setToggle] = useState({
     palletColors: false,
     priority: false,
@@ -58,9 +58,8 @@ const EditorFooter = ({noteCard}) => {
         <div className="dropdown priority-position flex-column">
           {priorityList.map((priorityValue, index) => {
             return (
-              <label htmlFor={priorityValue} key={index} name="priority">
+              <div className="input-radio">
                 <input
-                  className="inline"
                   type="radio"
                   id={priorityValue}
                   name="priority value"
@@ -71,8 +70,10 @@ const EditorFooter = ({noteCard}) => {
                     })
                   }
                 />
-                {priorityValue}
-              </label>
+                <label htmlFor={priorityValue} key={index} name="priority">
+                  {priorityValue}
+                </label>
+              </div>
             );
           })}
         </div>
@@ -94,6 +95,7 @@ const EditorFooter = ({noteCard}) => {
               onChange={(e) => setNewLabel(e.target.value)}
             />
             <button
+              className="btn btn-secondary"
               onClick={() => {
                 if (
                   !uniqueLabels.find((labelItem) => labelItem === newLabel) &&
@@ -107,22 +109,23 @@ const EditorFooter = ({noteCard}) => {
               Add
             </button>
           </div>
-          <div>
+          <div className="labels-checkbox-wrapper">
             {uniqueLabels.length !== 0 &&
-              uniqueLabels.map((tag,index) => (
-                <label
-                  key={index}
-                  htmlFor={tag}
-                >
+              uniqueLabels.map((tag, index) => (
+                <div className="label-checkbox">
                   <input
                     type="checkbox"
                     name="labels"
                     id={tag}
                     checked={noteActionsState.labels.includes(tag)}
-                    onChange={()=>noteActionsDispatch({type: SET_LABELS, payload: tag})}
+                    onChange={() =>
+                      noteActionsDispatch({ type: SET_LABELS, payload: tag })
+                    }
                   />
-                  {tag}
-                </label>
+                  <label key={index} htmlFor={tag}>
+                    {tag}
+                  </label>
+                </div>
               ))}
           </div>
         </div>

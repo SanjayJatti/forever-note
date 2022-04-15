@@ -41,7 +41,7 @@ const EditModal = ({ setEditModal, noteCard }) => {
   return (
     <div className="edit-modal-container">
       <div className="note-editor-container">
-        <h2>Create New Note</h2>
+        <h2>Edit Note</h2>
         <input
           type="text"
           placeholder="Title of Note"
