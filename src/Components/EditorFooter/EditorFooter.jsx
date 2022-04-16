@@ -23,13 +23,13 @@ const EditorFooter = ({ noteCard }) => {
   return (
     <div className="editor-footer flex-row">
       <button
-        className="editor-btn"
+        className="btn btn-outline-secondary"
         title="Choose Colors"
         onClick={() =>
           setToggle({ ...toggle, palletColors: !toggle.palletColors })
         }
-      >
-        <i className="fas fa-palette"></i>
+      > Choose Color
+        <i className="fas fa-palette margin-l-xs"></i>
       </button>
       {toggle.palletColors && (
         <div className="dropdown pallet-position flex-center">
@@ -48,11 +48,11 @@ const EditorFooter = ({ noteCard }) => {
         </div>
       )}
       <button
-        className="editor-btn"
+        className="btn btn-outline-secondary"
         title="Set Priority"
         onClick={() => setToggle({ ...toggle, priority: !toggle.priority })}
-      >
-        <i className="fas fa-sort"></i>
+      >Set Priority
+        <i className="fas fa-sort margin-l-xs"></i>
       </button>
       {toggle.priority && (
         <div className="dropdown priority-position flex-column">
@@ -79,11 +79,11 @@ const EditorFooter = ({ noteCard }) => {
         </div>
       )}
       <button
-        className="editor-btn"
+        className="btn btn-outline-secondary"
         title="Add Labels"
         onClick={() => setToggle({ ...toggle, labels: !toggle.labels })}
-      >
-        <i className="fas fa-tags"></i>
+      >Add Labels
+        <i className="fas fa-tags margin-l-xs"></i>
       </button>
       {toggle.labels && (
         <div className="dropdown labels-position">

@@ -1,5 +1,5 @@
 .note-card{
-    width: 15rem;
+    min-width: 15rem;
     min-height: 8rem;
     height: auto;
     border: none;
@@ -14,7 +14,14 @@
     display: flex; 
     justify-content: flex-end;
     align-items: center;
-    gap: 1rem
+    gap: 0.5rem
+}
+.note-card-footer i{
+    padding: 0.6rem;
+}
+.note-card-footer i:hover{
+    background-color: var(--off-white);
+    border-radius: 50%;
 }
 i{
     cursor: pointer;

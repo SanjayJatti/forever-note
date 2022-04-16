@@ -115,7 +115,7 @@ li{
 }
 
 .btn-secondary{
-    color:var(--off-white);
+    color:var(--white);
     background-color: var(--secondary-color);
 }
 .btn-secondary:hover{
@@ -128,7 +128,17 @@ li{
 }
 .btn-outline-primary:hover{
     background-color: var(--primary-color);
-    color: var(--off-white);
+    color: var(--white);
+    border: 1.5px solid;
+}
+.btn-outline-secondary{
+    color: var(--secondary-color);
+    background-color: transparent;
+    border: 1.5px solid;
+}
+.btn-outline-secondary:hover{
+    background-color: var(--secondary-color);
+    color: var(--white);
     border: 1.5px solid;
 }
 /* background colors */

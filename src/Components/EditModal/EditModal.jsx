@@ -41,7 +41,7 @@ const EditModal = ({ setEditModal, noteCard }) => {
   return (
     <div className="edit-modal-container">
       <div className="note-editor-container">
-        <h2>Edit Note</h2>
+        <h2 className="text-primary">Edit Note</h2>
         <input
           type="text"
           placeholder="Title of Note"
@@ -78,7 +78,7 @@ const EditModal = ({ setEditModal, noteCard }) => {
             ))}
         </div>
         <EditorFooter noteCard={noteCard} />
-        <div className="flex-row gap-md">
+        <div className="btn-wrapper">
           <button
             className="btn btn-primary"
             onClick={() => {

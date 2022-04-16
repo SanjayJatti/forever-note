@@ -47,7 +47,7 @@ const NoteEditor = ({ setShowNoteEditor }) => {
   return (
     <>
       <div className="note-editor-container">
-        <h2>Create New Note</h2>
+        <h2 className="text-primary">Create New Note</h2>
         <input
           type="text"
           placeholder="Title of Note"
@@ -75,7 +75,7 @@ const NoteEditor = ({ setShowNoteEditor }) => {
             ))}
         </div>
         <EditorFooter />
-        <div className="flex-row gap-md">
+        <div className="btn-wrapper">
           <button className="btn btn-primary" onClick={() => noteSaveHandler()}>
             Add Note
           </button>

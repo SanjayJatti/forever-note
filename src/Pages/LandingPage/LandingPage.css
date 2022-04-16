@@ -1,4 +1,7 @@
-
+.landing-page-container{
+    position: relative;
+    top: 9vh;
+}
 .hero-section{
     background-image: url("../../Assets/hero-img-notes.jpg");
     background-position: center;

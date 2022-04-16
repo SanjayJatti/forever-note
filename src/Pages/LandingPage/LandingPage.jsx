@@ -6,7 +6,7 @@ import "./LandingPage.css";
 export const LandingPage = () => {
   return (
     <>
-      <div className="">
+      <div className="landing-page-container">
         <div className="hero-section flex-column-center">
           <h2 className="hero-title">
             <span className="text-primary font-inherit">FOREVER </span>
