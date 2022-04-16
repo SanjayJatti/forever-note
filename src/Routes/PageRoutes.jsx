@@ -11,6 +11,7 @@ import {
   Login,
   Signup,
 } from "../Pages/index";
+import Mockman from "mockman-js";
 const PageRoutes = () => {
   return (
     <>
@@ -27,30 +28,39 @@ const PageRoutes = () => {
             </PrivateRoute>
           }
         />
-        <Route path="/labels"
-              element={
-                <PrivateRoute>
-                  <Labels />
-                </PrivateRoute>
-              }/>
-        <Route path="/archive" 
-              element={
-                <PrivateRoute>
-                  <Archive />
-                </PrivateRoute>
-              } />
-        <Route path="/trash"
-              element={
-                <PrivateRoute>
-                  <Archive />
-                </PrivateRoute>
-              }/>
-        <Route path="/userprofile"
-              element={
-                <PrivateRoute>
-                  <UserProfile />
-                </PrivateRoute>
-              } />
+        <Route
+          path="/labels"
+          element={
+            <PrivateRoute>
+              <Labels />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/archive"
+          element={
+            <PrivateRoute>
+              <Archive />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/trash"
+          element={
+            <PrivateRoute>
+              <Trash />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/userprofile"
+          element={
+            <PrivateRoute>
+              <UserProfile />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/mockman" element={<Mockman/>}/>
       </Routes>
     </>
   );

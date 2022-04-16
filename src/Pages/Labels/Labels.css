@@ -1,0 +1,13 @@
+.label-buttons-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.labeld-notes-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-top: 2rem;
+
+}

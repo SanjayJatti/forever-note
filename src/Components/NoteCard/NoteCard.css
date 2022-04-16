@@ -1,7 +1,29 @@
 .note-card{
     width: 15rem;
+    min-height: 8rem;
     height: auto;
-    border: 1px solid var(--secondary-color);
+    border: none;
     border-radius: 0.5rem;
     padding: 1rem;
+    box-shadow: var(--shadow);
+}
+.note-description{
+    margin: 1rem 0;
+}
+.note-card-footer{
+    display: flex; 
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem
+}
+i{
+    cursor: pointer;
+}
+.priority-chip{
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    width: fit-content;
+    margin-bottom: 1rem;
 }
