@@ -12,6 +12,8 @@ const FiltersReducer = (state, action) => {
     case CLEAR: {
       return { ...state, sortByDate: undefined, filterByPriority: undefined };
     }
+    default:
+    return state
   }
 };
 
