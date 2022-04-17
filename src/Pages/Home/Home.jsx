@@ -1,18 +1,15 @@
 import React from "react";
 import { useState } from "react";
-import { NoteCard } from "../../Components/NoteCard/NoteCard";
 import { NoteEditor } from "../../Components/NoteEditor/NoteEditor";
 import { Sidebar } from "../../Components/Sidebar/Sidebar";
-import { useNoteActions } from "../../Context/NoteActionsContext";
 import { useNotes } from "../../Context/NotesContext";
+import { NotesContainer } from "../../Components/NotesContainer/NotesContainer";
 import "./Home.css";
 
 const Home = () => {
   const [showNoteEditor, setShowNoteEditor] = useState(false);
-  const { notesState } = useNotes();
-  const { notes } = notesState;
-  const { noteActionsState } = useNoteActions();
-
+  const { pinnedNotes, otherNotes } = useNotes();
+  
   return (
     <>
       <Sidebar />
@@ -31,10 +28,19 @@ const Home = () => {
           <NoteEditor setShowNoteEditor={setShowNoteEditor} />
         )}
         <div>
-          <div className="note-card-container">
-            {notes.map((noteCard, index) => {
-              return !noteCard.inTrash && <NoteCard noteCard={noteCard} key={index}/>;
-            })}
+          <div className="margin-t-md">
+            {pinnedNotes.length !== 0 && (
+              <div className="margin-t-md" >
+                {otherNotes.length !== 0 && <h4 className="text-primary">PINNED NOTES</h4>}
+                <NotesContainer notes={pinnedNotes} />
+              </div>
+            )}
+            {otherNotes.length !== 0 && (
+              <div className="margin-t-md">
+                {pinnedNotes.length !== 0 && <h4 className="text-primary">OTHER NOTES</h4>}
+                <NotesContainer notes={otherNotes} />
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { useNotes } from "../../Context/NotesContext";
 import { useAuth } from "../../Context/AuthContext";
 import { SET_NOTES } from "../../Constants/NotesConstant";
@@ -11,18 +10,17 @@ import { useNoteActions } from "../../Context/NoteActionsContext";
 import { EditorFooter } from "../EditorFooter/EditorFooter";
 
 const EditModal = ({ setEditModal, noteCard }) => {
-  const { notesState, notesDispatch } = useNotes();
+  const { notesDispatch } = useNotes();
   const { noteActionsState, noteActionsDispatch } = useNoteActions();
   const { authState } = useAuth();
   const { token } = authState;
-  const [newNote, setNewNote] = useState("");
-
+ 
   const noteEditHandler = async (noteCard) => {
     try {
       const response = await axios.post(
         `/api/notes/${noteCard._id}`,
         {
-          note: { newNote, ...noteActionsState },
+          note: {...noteActionsState },
         },
         {
           headers: { authorization: token },

@@ -12,7 +12,6 @@ import { EditorFooter } from "../EditorFooter/EditorFooter";
 
 const NoteEditor = ({ setShowNoteEditor }) => {
   const { noteActionsState, noteActionsDispatch } = useNoteActions();
-  const { labels } = noteActionsState;
   const [note, setNote] = useState();
 
   const { authState } = useAuth();

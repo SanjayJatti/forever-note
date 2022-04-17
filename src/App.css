@@ -154,3 +154,8 @@ li{
 .bg-success{
     background-color: var(--light-success-color);
 }
+
+/* spacing */
+.margin-t-md{
+    margin-top: 1rem;
+}

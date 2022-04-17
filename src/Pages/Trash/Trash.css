@@ -1,7 +1,0 @@
-.trash-card-container{
-    display: flex;
-    flex-direction: row;
-    gap: 3rem;
-    flex-wrap: wrap;
-    align-items: center;
-}

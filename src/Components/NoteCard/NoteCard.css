@@ -1,11 +1,12 @@
 .note-card{
-    min-width: 15rem;
+    width: 15rem;
     min-height: 8rem;
     height: auto;
     border: none;
     border-radius: 0.5rem;
     padding: 1rem;
     box-shadow: var(--shadow);
+    position: relative;
 }
 .note-description{
     margin: 1rem 0;
@@ -33,4 +34,18 @@ i{
     border-radius: 5px;
     width: fit-content;
     margin-bottom: 1rem;
+}
+.bookmark-icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+}
+.bookmark-icon i{
+    padding: 0.6rem;
+}
+.bookmark-icon i:hover{
+    background-color: var(--off-white);
+    border-radius: 50%;
+
 }
