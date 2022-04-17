@@ -31,7 +31,7 @@ const NotesProvider = ({children}) =>{
             }
         }
         getNotes()
-    },[])
+    },[token])
     
     return(
         <notesContext.Provider value={{notesState, notesDispatch, pinnedNotes, otherNotes}}>

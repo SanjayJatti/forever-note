@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { useNotes } from "../../Context/NotesContext";
 import { useAuth } from "../../Context/AuthContext";
 import { SET_NOTES } from "../../Constants/NotesConstant";

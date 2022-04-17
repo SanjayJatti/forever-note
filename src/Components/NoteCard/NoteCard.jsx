@@ -2,7 +2,7 @@ import React from "react";
 import "./NoteCard.css";
 import { useLocation } from "react-router-dom";
 import { useNoteActions } from "../../Context/NoteActionsContext";
-import { SET_NOTE, TOGGLE_PINNED } from "../../Constants/NoteActionsConstants";
+import { SET_NOTE } from "../../Constants/NoteActionsConstants";
 import { useState } from "react";
 import { EditModal } from "../EditModal/EditModal";
 import { useAuth } from "../../Context/AuthContext";
