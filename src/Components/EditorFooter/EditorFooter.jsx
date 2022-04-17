@@ -5,10 +5,9 @@ import {
   SET_PRIORITY,
 } from "../../Constants/NoteActionsConstants";
 import { useNoteActions } from "../../Context/NoteActionsContext";
-import { NoteCard } from "../NoteCard/NoteCard";
 import "./EditorFooter.css";
 
-const EditorFooter = ({ noteCard }) => {
+const EditorFooter = () => {
   const [toggle, setToggle] = useState({
     palletColors: false,
     priority: false,
