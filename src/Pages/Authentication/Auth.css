@@ -1,7 +1,7 @@
 .log-in-wrapper,
 .sign-up-wrapper{
     position: relative;
-    top: 7vh;
+    top: 9vh;
 }
 .form-container{
     display: flex;
@@ -15,6 +15,7 @@
     box-shadow: var(--shadow);
     width: 30rem;
     height: 30rem;
+    margin-top: 2rem;
 }
 .input-container{
     display: flex;

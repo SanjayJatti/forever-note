@@ -159,3 +159,7 @@ li{
 .margin-t-md{
     margin-top: 1rem;
 }
+/* gaps */
+.gap-sm{
+    gap: 10px
+}
