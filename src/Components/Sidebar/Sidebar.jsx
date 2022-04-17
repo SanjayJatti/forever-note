@@ -1,6 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
-import { NavLink, Router } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -14,7 +14,7 @@ const Sidebar = () => {
           <i className="fas fa-tag font-inherit"></i>
           <p>Labels</p>
         </NavLink >
-        <NavLink to={"/archive"} className="sidebar-menu-item">
+        <NavLink to={"/archives"} className="sidebar-menu-item">
           <i className="fas fa-archive font-inherit"></i>
           <p>Archive</p>
         </NavLink >

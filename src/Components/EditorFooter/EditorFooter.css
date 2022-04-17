@@ -23,6 +23,10 @@
   left: 21rem;
   top: 3rem;
   width: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .color-btn {
@@ -45,13 +49,16 @@
   display: flex;
   flex-direction: column;
   margin-top: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
   gap: 5px;
 }
+
 .label-checkbox {
   display: flex;
   flex-direction: row;
   gap: 5px;
+  align-items: center;
+  justify-content: center;
 }
 .label-checkbox label {
   font-size: 0.8rem;

@@ -37,7 +37,7 @@ const PageRoutes = () => {
           }
         />
         <Route
-          path="/archive"
+          path="/archives"
           element={
             <PrivateRoute>
               <Archive />

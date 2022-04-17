@@ -11,6 +11,9 @@ const NotesProvider = ({children}) =>{
     const [ notesState, notesDispatch] = useReducer(NotesReducer, { notes : []})
     const { authState } = useAuth();
     const { token } = authState;
+
+    const pinnedNotes = notesState.notes.filter((note) => note.pinned && !note.inTrash);
+    const otherNotes = notesState.notes.filter((note) => !note.pinned && !note.inTrash);
      
     useEffect(() =>{
         const getNotes = async()=>{
@@ -31,7 +34,7 @@ const NotesProvider = ({children}) =>{
     },[])
     
     return(
-        <notesContext.Provider value={{notesState, notesDispatch}}>
+        <notesContext.Provider value={{notesState, notesDispatch, pinnedNotes, otherNotes}}>
             {children}
         </notesContext.Provider>
     )
