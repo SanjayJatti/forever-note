@@ -10,7 +10,7 @@ import { useState } from "react";
 import { SET_TITLE, RESET, SET_LABELS } from "../../Constants/NoteActionsConstants";
 import { EditorFooter } from "../EditorFooter/EditorFooter";
 
-const NoteEditor = ({ setShowNoteEditor }) => {
+const NoteEditor = ({ toggleBtn, setToggleBtn, showNoteEditor}) => {
   const { noteActionsState, noteActionsDispatch } = useNoteActions();
   const [note, setNote] = useState();
 
@@ -37,7 +37,7 @@ const NoteEditor = ({ setShowNoteEditor }) => {
         payload: response.data.notes,
       });
       noteActionsDispatch({ type: RESET });
-      setShowNoteEditor(false);
+      setToggleBtn({...toggleBtn, showNoteEditor: false});
     } catch (error) {
       console.error(error);
     }
@@ -80,7 +80,7 @@ const NoteEditor = ({ setShowNoteEditor }) => {
           </button>
           <button
             className="btn btn-outline-primary"
-            onClick={() => setShowNoteEditor(false)}
+            onClick={() => setToggleBtn({...toggleBtn, showNoteEditor : false})}
           >
             Cancel
           </button>

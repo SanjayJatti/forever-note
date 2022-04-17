@@ -16,3 +16,7 @@
     flex-wrap: wrap;
     align-items: center;
 }
+.button-container{
+    display: flex;
+    gap: 4rem
+}
