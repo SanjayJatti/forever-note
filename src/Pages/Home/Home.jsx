@@ -1,18 +1,15 @@
 import React from "react";
 import { useState } from "react";
-import { NoteCard } from "../../Components/NoteCard/NoteCard";
 import { NoteEditor } from "../../Components/NoteEditor/NoteEditor";
 import { Sidebar } from "../../Components/Sidebar/Sidebar";
-import { useNoteActions } from "../../Context/NoteActionsContext";
 import { useNotes } from "../../Context/NotesContext";
 import { NotesContainer } from "../../Components/NotesContainer/NotesContainer";
 import "./Home.css";
 
 const Home = () => {
   const [showNoteEditor, setShowNoteEditor] = useState(false);
-  const { notesState, pinnedNotes, otherNotes } = useNotes();
-  const { noteActionsState } = useNoteActions();
-
+  const { pinnedNotes, otherNotes } = useNotes();
+  
   return (
     <>
       <Sidebar />
