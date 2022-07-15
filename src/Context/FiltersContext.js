@@ -6,7 +6,6 @@ const FiltersContext = createContext();
 
 const FiltersProvider = ({ children }) => {
   const initialState = {
-    sortByDate: "",
     filterByPriority: "",
   };
 

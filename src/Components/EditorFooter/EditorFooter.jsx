@@ -20,14 +20,16 @@ const EditorFooter = () => {
   const priorityList = ["High", "Medium", "Low"];
 
   return (
-    <div className="editor-footer flex-row">
+    <div className="editor-footer">
       <button
-        className="btn btn-outline-secondary"
+        className="btn btn-outline-secondary footer-btn"
         title="Choose Colors"
         onClick={() =>
           setToggle({ ...toggle, palletColors: !toggle.palletColors })
         }
-      > Choose Color
+      >
+        {" "}
+        Choose Color
         <i className="fas fa-palette margin-l-xs"></i>
       </button>
       {toggle.palletColors && (
@@ -47,17 +49,18 @@ const EditorFooter = () => {
         </div>
       )}
       <button
-        className="btn btn-outline-secondary"
+        className="btn btn-outline-secondary footer-btn"
         title="Set Priority"
         onClick={() => setToggle({ ...toggle, priority: !toggle.priority })}
-      >Set Priority
+      >
+        Set Priority
         <i className="fas fa-sort margin-l-xs"></i>
       </button>
       {toggle.priority && (
-        <div className="dropdown priority-position flex-column">
+        <div className="dropdown priority-position">
           {priorityList.map((priorityValue, index) => {
             return (
-              <div className="input-radio">
+              <label htmlFor={priorityValue} key={index} name="priority">
                 <input
                   type="radio"
                   id={priorityValue}
@@ -69,19 +72,18 @@ const EditorFooter = () => {
                     })
                   }
                 />
-                <label htmlFor={priorityValue} key={index} name="priority">
-                  {priorityValue}
-                </label>
-              </div>
+                {priorityValue}
+              </label>
             );
           })}
         </div>
       )}
       <button
-        className="btn btn-outline-secondary"
+        className="btn btn-outline-secondary footer-btn"
         title="Add Labels"
         onClick={() => setToggle({ ...toggle, labels: !toggle.labels })}
-      >Add Labels
+      >
+        Add Labels
         <i className="fas fa-tags margin-l-xs"></i>
       </button>
       {toggle.labels && (

@@ -7,11 +7,9 @@ import {
   Labels,
   Archive,
   Trash,
-  UserProfile,
   Login,
   Signup,
 } from "../Pages/index";
-import Mockman from "mockman-js";
 const PageRoutes = () => {
   return (
     <>
@@ -52,15 +50,6 @@ const PageRoutes = () => {
             </PrivateRoute>
           }
         />
-        <Route
-          path="/userprofile"
-          element={
-            <PrivateRoute>
-              <UserProfile />
-            </PrivateRoute>
-          }
-        />
-        <Route path="/mockman" element={<Mockman/>}/>
       </Routes>
     </>
   );
