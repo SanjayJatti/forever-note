@@ -6,7 +6,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar-container">
       <div className="sidebar-items">
-        <NavLink to={"/home"} className="sidebar-menu-item ">
+        <NavLink to={"/home"} className="sidebar-menu-item">
           <i className="fas fa-sticky-note font-inherit"></i>
           <p>Notes</p>
         </NavLink >
@@ -22,10 +22,6 @@ const Sidebar = () => {
           <i className="fas fa-trash-alt font-inherit"></i>
           <p>Trash</p>
         </NavLink >
-        <NavLink to={"/userprofile"} className="sidebar-menu-item">
-          <i className="fas fa-user-circle font-inherit"></i>
-          <p>Profile</p>
-        </NavLink>
       </div>
     </div>
   );

@@ -6,11 +6,7 @@ import { useNotes } from "../../Context/NotesContext";
 import { NotesContainer } from "../../Components/NotesContainer/NotesContainer";
 import { Filters } from "../../Components/Filters/Filters";
 import "./Home.css";
-import {
-  filterByPriority,
-  sortByDate,
-  composeFunction,
-} from "../../Utils/FiltersFunc";
+import { filterByPriority } from "../../Utils/FiltersFunc";
 import { NoteCard } from "../../Components/NoteCard/NoteCard";
 import { useFilters } from "../../Context/FiltersContext";
 
@@ -23,19 +19,15 @@ const Home = () => {
   const { showNoteEditor, showFilters } = toggleBtn;
   const { pinnedNotes, otherNotes } = useNotes();
 
-  const notesData = composeFunction(sortByDate, filterByPriority)(
-    filtersState,
-    otherNotes
-  );
-
+  const notesData = filterByPriority(filtersState, otherNotes) 
   return (
-    <>
+    <div className="home-page">
       <Sidebar />
       <div className="all-notes-container">
         <div className="button-container">
           {!showNoteEditor ? (
             <button
-              className="btn btn-outline-primary"
+              className="btn btn-outline-primary home-btn"
               onClick={() =>
                 setToggleBtn({ ...toggleBtn, showNoteEditor: true })
               }
@@ -46,12 +38,21 @@ const Home = () => {
               </h3>
             </button>
           ) : (
-            <NoteEditor setToggleBtn={setToggleBtn} toggleBtn={toggleBtn} showNoteEditor={showNoteEditor} />
+            <NoteEditor
+              setToggleBtn={setToggleBtn}
+              toggleBtn={toggleBtn}
+              showNoteEditor={showNoteEditor}
+            />
           )}
           {!showNoteEditor && (
             <button
-              className="btn btn-secondary"
-              onClick={() => setToggleBtn({ ...toggleBtn, showFilters: !toggleBtn.showFilters })}
+              className="btn btn-secondary home-btn"
+              onClick={() =>
+                setToggleBtn({
+                  ...toggleBtn,
+                  showFilters: !toggleBtn.showFilters,
+                })
+              }
             >
               Filters
             </button>
@@ -81,7 +82,7 @@ const Home = () => {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export { Home };

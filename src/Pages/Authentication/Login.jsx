@@ -71,23 +71,6 @@ const Login = () => {
               }
             />
           </div>
-          <div className="forget-password flex-row">
-            <div className="input-checkbox">
-              <input
-                type="checkbox"
-                id="remember-me"
-                name="remember-me"
-                value="remember-me"
-              />
-              <label className="text-medium" htmlFor="remember-me">
-                Remember me
-              </label>
-            </div>
-            <Link to="/login" className="text-medium text-primary">
-            <div> Forget your password?</div>
-          </Link>
-          </div>
-     
           <div className="flex-column gap-md">
             <button type="submit" className="btn btn-primary btn-long">
               Log In
@@ -95,7 +78,7 @@ const Login = () => {
             <button
               className="btn btn-secondary btn-long"
               onClick={(e) =>
-                logInHandler(e, "adarshbalika@gmail.com", "adarshBalika123")
+                logInHandler(e, "sanjayjattia@gmail.com", "sanjayjatti123")
               }
             >
               Guest Log In

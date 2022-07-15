@@ -8,11 +8,11 @@ export const LandingPage = () => {
     <>
       <div className="landing-page-container">
         <div className="hero-section flex-column-center">
-          <h2 className="hero-title">
+          <h2 className="hero-title flex-center">
             <span className="text-primary font-inherit">FOREVER </span>
             NOTE
           </h2>
-          <h2>CREATE YOUR DAILY NOTES SEAMLESSLY</h2>
+          <h2 className="flex-center">CREATE YOUR DAILY NOTES SEAMLESSLY</h2>
           <Link to="/home" className="text-decoration-none">
             <button className="btn btn-primary btn-large">
               <h3>Get Started</h3>

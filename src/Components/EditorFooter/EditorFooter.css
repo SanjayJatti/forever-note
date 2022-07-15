@@ -1,6 +1,8 @@
 .editor-footer {
   position: relative;
-  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem
 }
 .dropdown {
   background-color: var(--light-primary-color);
@@ -8,19 +10,24 @@
   border-radius: 5px;
   position: absolute;
   box-shadow: var(--shadow);
+  z-index: 3;
 }
 .pallet-position {
   top: 3rem;
-  left: 1rem;
+  left: -2rem;
   gap: 0.5rem;
 }
 .priority-position {
-  left: 12rem;
+  left: 8rem;
   top: 3rem;
   width: 7rem;
 }
+.priority-position label{
+  display: flex;
+  gap: 5px
+}
 .labels-position {
-  left: 21rem;
+  left: 16rem;
   top: 3rem;
   width: 10rem;
   display: flex;
@@ -36,30 +43,62 @@
   border: none;
   cursor: pointer;
 }
-.input-radio {
-  display: flex;
-  gap: 3px;
-}
-
 .add-label-wrapper {
   display: flex;
   gap: 0.5rem;
 }
+.add-label-wrapper input{
+  width: 100%;
+}
 .labels-checkbox-wrapper {
-  display: flex;
-  flex-direction: column;
   margin-top: 0.5rem;
   font-size: 1rem;
-  gap: 5px;
 }
 
-.label-checkbox {
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-  align-items: center;
-  justify-content: center;
-}
 .label-checkbox label {
   font-size: 0.8rem;
+}
+.label-checkbox input{
+  margin-right: 5px;
+}
+@media only screen and (max-width: 800px){
+  .footer-btn{
+    font-size: 0.7rem;
+  }
+  .pallet-position {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 680px){
+  .priority-position {
+    left: 3rem;
+  }
+  .labels-position{
+    left:11rem;
+  }
+}
+@media only screen and (max-width: 515px){
+  .priority-position {
+    left: 10rem;
+    width: 6rem;
+  }
+  .add-label-wrapper{
+    flex-direction: column;
+  }
+  .labels-position{
+    top: 5rem;
+    left: 2rem;
+    width: 7rem;
+  }
+}
+@media only screen and (max-width: 375px){
+  .priority-position {
+    top: 5rem;
+    left: -2rem;
+    width: 7rem;
+  }
+  .labels-position{
+    left: 6rem;
+    width: 6rem;
+  }
 }

@@ -1,10 +1,12 @@
-import React from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
 import "./Header.css";
 import { AUTH_TOKEN } from "../../Constants/AuthConstants";
+import { SidebarSmallScreen } from "../Sidebar/SidebarSmallScreen";
 
 const Header = () => {
+  const [slider, setSlider] = useState(false);
   const { authState, authDispatch } = useAuth();
   const { token } = authState;
   const navigate = useNavigate();
@@ -13,48 +15,33 @@ const Header = () => {
     localStorage.removeItem("token");
     authDispatch({
       type: AUTH_TOKEN,
-      payload: null
+      payload: null,
     });
     navigate("/");
   };
   return (
     <div className="navbar-container">
-      <div className="nav-link header-title">
-        <Link to="/" className="text-decoration-none">
-          {" "}
-          <h2>
-            Forever<span className="text-secondary">Note</span>
-          </h2>
-        </Link>
+      <div
+        className="hamburger"
+        onClick={() => setSlider(!slider)}
+      >
+        <i className={` ${slider ? "fas fa-times" : "fas fa-bars"}`}></i>
       </div>
-      <div className="search-box-container">
-        <div className="search-box flex-center">
-          <input
-            className="search-txt"
-            type="search"
-            name="search"
-            placeholder="Type to search"
-          />
-          <div className="search-btn flex-center">
-            <i className="fas fa-search"></i>
-          </div>
-        </div>
-      </div>
-      <ul className="nav-list">
-        <li className="nav-item">
-          {!token ? (
-            <NavLink to="/login" className="nav-link">
-              <button className="btn btn-primary">LogIn</button>
-            </NavLink>
-          ) : (
-            <div className="nav-link">
-              <button 
-              className="btn btn-primary"
-              onClick={logOutHandler}>Logout</button>
-            </div>
-          )}
-        </li>
-      </ul>
+      {slider && <SidebarSmallScreen setSlider={setSlider}/>}
+      <Link to="/" className="text-decoration-none header-title">
+        <h2 className="text-primary">
+          Forever<span className="text-secondary">Note</span>
+        </h2>
+      </Link>
+      {!token ? (
+    
+          <button className="btn btn-primary auth-btn" onClick={()=>navigate("/login")}>LogIn</button>
+     
+      ) : (
+        <button className="btn btn-primary auth-btn" onClick={logOutHandler}>
+          Logout
+        </button>
+      )}
     </div>
   );
 };

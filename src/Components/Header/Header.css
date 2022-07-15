@@ -1,9 +1,8 @@
-
 .navbar-container{
     height: 9vh;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid var(--light-secondary-color);
@@ -11,66 +10,34 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--white);
     z-index: 5;
+    background-color: var(--white);
+}
+.hamburger{
+    display: none;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    cursor: pointer;
 }
 .header-title{
     margin-left: 2rem;
 }
-.header-title h2{
-    color: var(--primary-color);
-    font-size: 1.5rem;
+.auth-btn{
+    margin-right: 2rem;
 }
-
-.header-title span{
-    color: var(--secondary-color);
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-}
-.search-box-container{
-    margin: auto;
-}
-.search-box{
-    height: 1.8rem;
-    padding: 10px;
-    gap: 10px;
-    border: 1px solid var(--light-secondary-color);
-    border-radius: 1rem; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.search-btn{
-    border-radius: 50%;
-    float: right;
-    color: var(--primary-color);
-}
-.search-btn i{
-    font-size: 1rem;
-}
-.search-txt{
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    color: var(--secondary-color);
-    font-size: 1rem;
-    font-family: inherit;
-}
-
-.nav-link{
-    padding: 5px;
-    color: var(--secondary-color);
-    font-size: 1rem;
+Link{
     text-decoration: none;
 }
-.nav-list{
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-    align-items: center;
-    font-weight: bold;
-    font-size: inherit;
-    margin-left: auto;
-    margin-right: 2rem;
+@media only screen and (max-width: 800px){
+    .hamburger{
+        display: block;
+    }
+}
+@media only screen and (max-width: 500px){
+    .header-title{
+        margin-left: 0.5rem;
+    }
+    .auth-btn{
+        margin-right: 0.5rem;
+    }
 }

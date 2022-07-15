@@ -2,7 +2,7 @@
     position: absolute;
     top: 4rem;
     left : 15rem;
-    width: 20rem;
+    width: 12rem;
     background-color: var(--light-primary-color);
     box-shadow: var(--shadow);
     padding: 1.5rem;
@@ -14,4 +14,10 @@
 .input-radio{
     display: flex;
     justify-content: flex-start;
+    gap:7px
+}
+@media only screen and (max-width:550px){
+    .note-filters-Container{
+        left:5rem;
+    }
 }
