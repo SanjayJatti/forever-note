@@ -4,6 +4,7 @@ import { useAuth } from "../../Context/AuthContext";
 import "./Header.css";
 import { AUTH_TOKEN } from "../../Constants/AuthConstants";
 import { SidebarSmallScreen } from "../Sidebar/SidebarSmallScreen";
+import toast from "react-hot-toast"
 
 const Header = () => {
   const [slider, setSlider] = useState(false);
@@ -18,6 +19,7 @@ const Header = () => {
       payload: null,
     });
     navigate("/");
+    toast.success("Logged out")
   };
   return (
     <div className="navbar-container">

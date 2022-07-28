@@ -9,6 +9,7 @@ import { SET_NOTES } from "../../Constants/NotesConstant";
 import { useState } from "react";
 import { SET_TITLE, RESET, SET_LABELS } from "../../Constants/NoteActionsConstants";
 import { EditorFooter } from "../EditorFooter/EditorFooter";
+import toast from "react-hot-toast"
 
 const NoteEditor = ({ toggleBtn, setToggleBtn, showNoteEditor}) => {
   const { noteActionsState, noteActionsDispatch } = useNoteActions();
@@ -38,8 +39,9 @@ const NoteEditor = ({ toggleBtn, setToggleBtn, showNoteEditor}) => {
       });
       noteActionsDispatch({ type: RESET });
       setToggleBtn({...toggleBtn, showNoteEditor: false});
+      toast.success("New note created")
     } catch (error) {
-      console.error(error);
+      toast.error("Failed to create a note")
     }
   };
 

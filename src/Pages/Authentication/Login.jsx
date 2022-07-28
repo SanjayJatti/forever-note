@@ -5,10 +5,10 @@ import { useAuth } from "../../Context/AuthContext";
 import {
   AUTH_TOKEN,
   USER_EMAIL,
-  USER_PASSWORD,
-  AUTH_ERROR,
+  USER_PASSWORD
 } from "../../Constants/AuthConstants";
 import axios from "axios";
+import toast from "react-hot-toast"
 
 const Login = () => {
   const { authState, authDispatch } = useAuth();
@@ -29,13 +29,10 @@ const Login = () => {
         type: AUTH_TOKEN,
         payload: response.data.encodedToken,
       });
-      navigate("/");
+      navigate("/");      
+      toast.success("Logged in");
     } catch (error) {
-      console.log(error);
-      authDispatch({
-        type: AUTH_ERROR,
-        payload: "Invalid email or password",
-      });
+      toast.error("Invalid email or password")
     }
   };
   return (

@@ -5,7 +5,6 @@ import {
   USER_PASSWORD,
   USER_CONFIRM_PASSWORD,
   IS_USER_LOGGED_IN,
-  AUTH_ERROR,
   AUTH_TOKEN
 } from "../Constants/AuthConstants";
 
@@ -38,8 +37,6 @@ const AuthReducer = (state, action) => {
       };
     case IS_USER_LOGGED_IN:
       return { ...state, isUserLoggedIn: !state.isUserLoggedIn };
-    case AUTH_ERROR:
-      return { ...state, error: action.payload };
     case AUTH_TOKEN:
       return { ...state, token: action.payload };
     default:

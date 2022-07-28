@@ -28,7 +28,6 @@ const EditorFooter = () => {
           setToggle({ ...toggle, palletColors: !toggle.palletColors })
         }
       >
-        {" "}
         Choose Color
         <i className="fas fa-palette margin-l-xs"></i>
       </button>

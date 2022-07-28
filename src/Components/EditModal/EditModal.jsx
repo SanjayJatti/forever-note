@@ -8,6 +8,7 @@ import { ReactQuillEditor } from "../ReactQuillEditor/ReactQuillEditor";
 import "./EditModal.css";
 import { useNoteActions } from "../../Context/NoteActionsContext";
 import { EditorFooter } from "../EditorFooter/EditorFooter";
+import toast from "react-hot-toast"
 
 const EditModal = ({ setEditModal, noteCard }) => {
   const { notesDispatch } = useNotes();
@@ -30,9 +31,9 @@ const EditModal = ({ setEditModal, noteCard }) => {
         type: SET_NOTES,
         payload: [...response.data.notes],
       });
+      toast.success("Note edited")
     } catch (error) {
-      console.log(error);
-      return;
+      toast.error("Unanle to edit note")
     }
   };
 

@@ -37,16 +37,16 @@ const Labels = () => {
       <Sidebar />
       <div className="all-notes-container">
         <div className="label-buttons-wrapper">
-        {tags.length !== 0 &&
+        {tags.length !== 0 ?
           tags.map((tagValue, index) => (
             <button
-            className="btn btn-primary"
+            className="btn btn-secondary"
               key={index}
               onClick={() => getLabeledNotes(mainNotes, tagValue)}
             >
               {tagValue}
             </button>
-          ))}
+          )) : <h3>Add label to the note</h3>}
         </div>
 
         <div className="labeld-notes-wrapper">

@@ -12,7 +12,8 @@ const Trash = () => {
       <div className="all-notes-container">
         <div className="note-card-container">
           {notes.map(
-            (noteCard) => noteCard.inTrash && <NoteCard noteCard={noteCard} />
+            (noteCard, index) =>
+              noteCard.inTrash && <NoteCard noteCard={noteCard} key={index} />
           )}
         </div>
       </div>

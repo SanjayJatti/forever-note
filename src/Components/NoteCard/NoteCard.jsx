@@ -11,17 +11,17 @@ import { SET_NOTES } from "../../Constants/NotesConstant";
 import { SET_ARCHIVES } from "../../Constants/ArchiveConstants";
 import axios from "axios";
 import { useArchive } from "../../Context/ArchiveContext";
+import toast from "react-hot-toast";
 
 const NoteCard = ({ noteCard }) => {
   const [editModal, setEditModal] = useState(false);
-
   const { noteActionsDispatch } = useNoteActions();
   const { authState } = useAuth();
   const { token } = authState;
   const { notesDispatch } = useNotes();
   const { archiveDispatch } = useArchive();
-
   const { pathname } = useLocation();
+
   const toggleBookmarkHandler = async (noteCard) => {
     try {
       const response = await axios.post(
@@ -35,9 +35,8 @@ const NoteCard = ({ noteCard }) => {
       );
       notesDispatch({ type: SET_NOTES, payload: [...response.data.notes] });
     } catch (error) {
-      console.log(error);
+      toast.error("Failed to pin");
     }
-
   };
   const addToArchivesHandler = async (noteCard) => {
     try {
@@ -55,8 +54,9 @@ const NoteCard = ({ noteCard }) => {
         type: SET_ARCHIVES,
         payload: [...response.data.archives],
       });
+      toast.success("Added to archieve");
     } catch (error) {
-      console.log(error);
+      toast.error("Failed to add in archieve");
     }
   };
   const restoreFromArchivesHandler = async (noteCard) => {
@@ -73,8 +73,9 @@ const NoteCard = ({ noteCard }) => {
         type: SET_ARCHIVES,
         payload: [...response.data.archives],
       });
+      toast.success("Restored from archive");
     } catch (error) {
-      console.log(error);
+      toast.error("Unable to restore from archieve");
     }
   };
 
@@ -90,8 +91,26 @@ const NoteCard = ({ noteCard }) => {
         type: SET_ARCHIVES,
         payload: [...response.data.archives],
       });
+      toast.success("Note deleted");
     } catch (error) {
-      console.log(error);
+      toast.error("Failed to delete");
+    }
+  };
+  const moveToTrashHandler = async (noteCard) => {
+    try {
+      const response = await axios.post(
+        `/api/notes/${noteCard._id}`,
+        {
+          note: { ...noteCard, inTrash: true },
+        },
+        {
+          headers: { authorization: token },
+        }
+      );
+      notesDispatch({ type: SET_NOTES, payload: [...response.data.notes] });
+      toast.success("Moved to the trash");
+    } catch (error) {
+      toast.error("Unable to move to the trash");
     }
   };
   const restoreFromTrashHandler = async (noteCard) => {
@@ -106,25 +125,9 @@ const NoteCard = ({ noteCard }) => {
         }
       );
       notesDispatch({ type: SET_NOTES, payload: [...response.data.notes] });
+      toast.success("Restored from the trash");
     } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const moveToTrashHandler = async (noteCard) => {
-    try {
-      const response = await axios.post(
-        `/api/notes/${noteCard._id}`,
-        {
-          note: { ...noteCard, inTrash: true },
-        },
-        {
-          headers: { authorization: token },
-        }
-      );
-      notesDispatch({ type: SET_NOTES, payload: [...response.data.notes] });
-    } catch (error) {
-      console.log(error);
+      toast.error("Unable to restore from trash");
     }
   };
   const deleteNoteHandler = async (noteCard) => {
@@ -138,8 +141,9 @@ const NoteCard = ({ noteCard }) => {
         type: SET_NOTES,
         payload: [...response.data.notes],
       });
+      toast.success("Note Deleted");
     } catch (error) {
-      console.error(error);
+      toast.error("Failed to delete the note");
     }
   };
 
@@ -152,17 +156,18 @@ const NoteCard = ({ noteCard }) => {
         {noteCard.priority && (
           <div className="priority-chip">{noteCard.priority}</div>
         )}
-        <div
-          className="bookmark-icon"
-          onClick={() => toggleBookmarkHandler(noteCard)}
-        >
-          {noteCard.pinned ? (
-            <i className="fas fa-bookmark"></i>
-          ) : (
-            <i className="far fa-bookmark"></i>
-          )}
-        </div>
-
+        {pathname === "/home" && (
+          <div
+            className="bookmark-icon"
+            onClick={() => toggleBookmarkHandler(noteCard)}
+          >
+            {noteCard.pinned ? (
+              <i className="fas fa-bookmark"></i>
+            ) : (
+              <i className="far fa-bookmark"></i>
+            )}
+          </div>
+        )}
         {noteCard.title && <strong>Title: {noteCard.title}</strong>}
         <div
           className="note-description"
@@ -174,21 +179,22 @@ const NoteCard = ({ noteCard }) => {
             noteCard.labels.map((labelValue, index) => (
               <div className="chip" kay={index}>
                 <span className="chip-content">{labelValue}</span>
-                <i className="fas fa-times"></i>
               </div>
             ))}
         </div>
 
         <div className="note-card-footer">
-          <i
-            className="fas fa-edit"
-            title="Edit Note"
-            onClick={() => {
-              noteActionsDispatch({ type: SET_NOTE, payload: noteCard });
-              setEditModal(true);
-            }}
-          ></i>
-          {pathname !== "/trash" &&
+          {pathname === "/home" && (
+            <i
+              className="fas fa-edit"
+              title="Edit Note"
+              onClick={() => {
+                noteActionsDispatch({ type: SET_NOTE, payload: noteCard });
+                setEditModal(true);
+              }}
+            ></i>
+          )}
+          {pathname !== "/trash" && pathname !== "/labels" &&
             (pathname === "/archives" ? (
               <i
                 className="fas fa-arrow-alt-circle-up"
